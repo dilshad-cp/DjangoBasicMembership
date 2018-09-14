@@ -1,0 +1,15 @@
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>Django Basic Registration and Login</h2>
+    {% if user.is_authenticated %}
+        <h3>Welcome {{ user.username }}!</h3>
+    {% else %}
+        <h3>Welcome to the site!</h3>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

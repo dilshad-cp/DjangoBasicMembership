@@ -1,0 +1,33 @@
+{% extends "basic_app/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block body_block %}
+  <div class="container">
+    <div class="card-group">
+      <div class="card">
+          <div class="card-body">
+              {% if registered %}
+              <h1>Thank you for registering!</h1>
+              {% else %}
+              <h1>Register Here</h1>
+              <h3>Just fill out the form.</h3>
+              <form enctype="multipart/form-data" method="POST">
+                  {% csrf_token %}
+                  {{ user_form|crispy}}
+                  {{ profile_form|crispy}}
+                  <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+              {% endif %}
+          </div>
+      </div>
+      {% if registered == False %}
+        <div class="card">
+            <div class="card-body">
+                <img class="img-fluid" src="{% static "images/register-here.jpg" %}" alt="register-here"/>
+            </div>
+        </div>
+       {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'basic_app/base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+  <div class="container">
+    <div class="card-group">
+      <div class="card">
+          <div class="card-body">
+              <h1>Please Login</h1>
+              <form method="post" action="{% url 'basic_app:user_login' %}">
+                {% csrf_token %}
+                {# A more "HTML" way of creating the login form#}
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Username</label>
+                  <input type="text" class="form-control" name="username" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-body">
+              <article class="full-width">
+                                              <h1 class="offer_page_header">Membership Benefits</h1>
+                  <p class="offer_sub_heading">It's 100% free</p>
+
+                  <ul class="account_features">
+                      <li>Dummy! : Get Priority Support</li>
+                      <li>Dummy! : One Click Themes Download</li>
+                      <li>Dummy! : Access to member only downloads and content</li>
+                      <li>Dummy! : Get Discount for premium Templates and Themes</li>
+                      <li>Dummy! : Save purchases and downloads</li>
+                      <li>Dummy! : Bookmark your favorite items</li>
+                  </ul>
+              </article>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
